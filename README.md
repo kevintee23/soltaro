@@ -1,6 +1,7 @@
 # Soltaro Qendercore Bridge for Hubitat
 
 Community Hubitat integration for Soltaro/Qendercore systems.
+**Note: Unsure if this works on all Soltaro/Qendercore systems, please test to see if it works on yours.
 
 ## What this includes
 
