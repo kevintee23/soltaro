@@ -66,7 +66,7 @@ def build_config(env: Dict[str, str]) -> Config:
     return Config(
         username=req("SOLTARO_USERNAME"),
         password=req("SOLTARO_PASSWORD"),
-        hwid=req("SOLTARO_HWID", "644fc8f0-2a4b-4867-9ce4-b6af0b778fb4"),
+        hwid=req("SOLTARO_HWID"),
         poll_seconds=poll_seconds,
         state_file=state_file,
         insecure_tls=env.get("SOLTARO_INSECURE_TLS", "false").lower() in ("1", "true", "yes", "on"),

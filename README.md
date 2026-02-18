@@ -52,6 +52,9 @@ High-level steps:
    - `chmod +x ~/soltaro-qendercore/soltaro_sync.py`
 3. Create `~/soltaro-qendercore/soltaro.env` from `pi/soltaro.env.example`.
    - Fill in `SOLTARO_USERNAME` + `SOLTARO_PASSWORD`
+   - Then discover your inverter HWID:
+     - `python3 ~/soltaro-qendercore/soltaro_sync.py list-inverters --env ~/soltaro-qendercore/soltaro.env`
+   - Copy the HWID into `SOLTARO_HWID=...`
    - Fill in Maker API (`HUBITAT_MAKER_BASE_URL`, `HUBITAT_MAKER_TOKEN`, `HUBITAT_DEVICE_ID`)
    - Then lock it down: `chmod 600 ~/soltaro-qendercore/soltaro.env`
 4. Install the Hubitat **Driver** in this repo and create a **Virtual Device** using it.
