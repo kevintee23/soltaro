@@ -46,11 +46,20 @@ Files:
 - `pi/systemd/soltaro-qendercore.service`
 
 High-level steps:
-1. Copy `pi/soltaro_sync.py` to your Pi (e.g. `~/soltaro-qendercore/soltaro_sync.py`) and `chmod +x` it.
-2. Create `~/soltaro-qendercore/soltaro.env` from `pi/soltaro.env.example` (fill in Qendercore + Hubitat Maker API details).
-3. Install the Hubitat **Driver** in this repo and create a **Virtual Device** using it.
-4. Put that virtual device into Hubitat **Maker API** and set `HUBITAT_DEVICE_ID` in the env file.
-5. Install the systemd unit from `pi/systemd/soltaro-qendercore.service` (edit paths/user if needed) and start it.
+1. On your Pi, create a folder:
+   - `mkdir -p ~/soltaro-qendercore`
+2. Copy `pi/soltaro_sync.py` to: `~/soltaro-qendercore/soltaro_sync.py` and make it executable:
+   - `chmod +x ~/soltaro-qendercore/soltaro_sync.py`
+3. Create `~/soltaro-qendercore/soltaro.env` from `pi/soltaro.env.example`.
+   - Fill in `SOLTARO_USERNAME` + `SOLTARO_PASSWORD`
+   - Fill in Maker API (`HUBITAT_MAKER_BASE_URL`, `HUBITAT_MAKER_TOKEN`, `HUBITAT_DEVICE_ID`)
+   - Then lock it down: `chmod 600 ~/soltaro-qendercore/soltaro.env`
+4. Install the Hubitat **Driver** in this repo and create a **Virtual Device** using it.
+5. Add that virtual device to Hubitat **Maker API** and set `HUBITAT_DEVICE_ID` in the env file.
+6. Install the systemd unit from `pi/systemd/soltaro-qendercore.service`:
+   - copy to `/etc/systemd/system/soltaro-qendercore.service`
+   - run `sudo systemctl daemon-reload`
+   - run `sudo systemctl enable --now soltaro-qendercore.service`
 
 ## HomeKit/Homebridge note
 

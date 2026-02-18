@@ -5,9 +5,9 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-User=jarvis
-WorkingDirectory=/home/jarvis/soltaro-qendercore
-ExecStart=/usr/bin/python3 /home/jarvis/soltaro-qendercore/soltaro_sync.py daemon --env /home/jarvis/soltaro-qendercore/soltaro.env
+User=pi
+WorkingDirectory=/home/pi/soltaro-qendercore
+ExecStart=/usr/bin/python3 /home/pi/soltaro-qendercore/soltaro_sync.py daemon --env /home/pi/soltaro-qendercore/soltaro.env
 Restart=always
 RestartSec=5
 
